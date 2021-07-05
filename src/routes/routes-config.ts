@@ -1,7 +1,7 @@
 /**
  * 路由创建
  */
-export interface MenuBase {
+export interface RoutesConfigList {
     path:string; // 地址
     title: string; // 文件名
     icon?:string; // 图表
@@ -13,6 +13,6 @@ export interface MenuBase {
     login?: boolean;
 }
 
-export interface Menu extends MenuBase {
-    children?: MenuBase[]
+export interface RoutesConfig extends RoutesConfigList {
+    children?: RoutesConfigList[]
 }

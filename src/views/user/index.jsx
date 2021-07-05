@@ -1,5 +1,5 @@
 import React from 'react'
-export default class Login extends React.Component{
+export default class User extends React.Component{
     render() {
         return (
             <div>1111111</div>
