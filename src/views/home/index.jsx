@@ -1,9 +1,16 @@
 import React from 'react'
 export default class Home extends React.Component{
+    constructor(props) {
+        super(props)
+        this.state = {}
+    }
     render() {
-        console.log('我这里执行了吗')
+        console.log()
         return (
-            <div>1111111Home</div>
+            <div>
+                1111111Home
+                { this.props.children }
+            </div>
         )
     }
 }

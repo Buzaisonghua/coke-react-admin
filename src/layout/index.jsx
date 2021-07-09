@@ -14,8 +14,8 @@ export default class Layout extends React.Component{
             <div>
                 <h1>Layout {userName}</h1>
                 <ul>
-                    <li><Link to="/home">Home</Link></li>
-                    <li><Link to="/user">User</Link></li>
+                    <li><Link to="/home/chart">Home</Link></li>
+                    <li><Link to="/home/user">User</Link></li>
                 </ul>
                 <div className="children-container">
                     {this.props.children}
