@@ -1,13 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import InitRoute from '@/routes'
+import { BrowserRouter } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
 import './styles/normalize.css'; // 初始化css样式
 import 'antd/dist/antd.css'; // antd样式
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <InitRoute />
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
