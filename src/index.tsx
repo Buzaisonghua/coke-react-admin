@@ -1,17 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import InitRoute from '@/routes'
+import {Provider} from 'react-redux';
+import store from './store'
 import { BrowserRouter } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
 import './styles/normalize.css'; // 初始化css样式
 import 'antd/dist/antd.css'; // antd样式
 
 ReactDOM.render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <InitRoute />
-    </BrowserRouter>
-  </React.StrictMode>,
+  <Provider store={ store }>
+    <React.StrictMode>
+      <BrowserRouter>
+        <InitRoute />
+      </BrowserRouter>
+    </React.StrictMode>
+  </Provider>,
   document.getElementById('root')
 );
 
