@@ -23,7 +23,7 @@ modulesFiles.keys().forEach((modulePath:string):void => {
   modules[moduleName] = value.default
   actions[moduleName] = getActionValue(value)
 })
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+const composeEnhancers = compose
 const store = createStore(combineReducers(modules), composeEnhancers(applyMiddleware(thunk)))
 
 /**

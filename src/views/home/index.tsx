@@ -3,8 +3,11 @@ import store from '@/store'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { actions } from '@/store'
-import { addCount } from '@/store/modules/token'
-class Home extends React.Component{
+interface propsInterface {
+    count: any,
+    addCount: any
+}
+class Home extends React.Component<Home>{
     constructor(props:any) {
         super(props)
         this.state = {
@@ -16,14 +19,12 @@ class Home extends React.Component{
         // token.addCount()
     }
     render() {
-        
-        console.log('home', this.props )
-        // const state = th/is.store.getState();
+        const { addCount, count } = this.props
         return (
             <div>
-                <p onClick={() => this.props.addCount() }>click</p>
+                <p onClick={() => addCount() }>click</p>
                 Home
-                <p>{ this.props.count }</p>
+                <p>{ count }</p>
                 { this.props.children }
             </div>
         )
@@ -37,7 +38,7 @@ const mapStateToProps = ({ token }:any) => {
 const mapDispatchToProps = (dispatch:any) =>
   bindActionCreators(
     {
-      addCount
+      addCount: actions.token.addCount
     },
     dispatch
   )
