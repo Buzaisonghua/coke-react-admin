@@ -1,6 +1,20 @@
 import { RouteProps } from "./route-list"
 import { Switch, Route, Redirect } from "react-router-dom"
 import routeComponents from "./route-components"
+import store from '@/store'
+import setting from '@/setting'
+/**
+ * @returns 登录状态
+ */
+const getLogin = ():boolean => {
+    const token:any = store.getState().token
+    if (Object.hasOwnProperty.call(token, 'token')) {
+        return !!token.token
+    }
+    return false
+}
+const login = getLogin()
+
 /**
  * 这是一个递归结构 用于渲染路由结构
  * @param routes 路由集合 子集存在必填项 path title component
@@ -27,21 +41,21 @@ const routeNode = (routes:RouteProps[]) => (
  * @returns 进行登录验证后返回对应页面
  */
 const routeDraw = (Comp:any, route:RouteProps) => {
-    const login = false
     const { hidden, countryHidden } = route
+    const { hiddenPath, countryHiddenPath } = setting
     // 状态为已登录
-    const haveLogin = () => (
-        countryHidden 
+    const haveLogin = () => {
+        return countryHidden 
             ?
-        <Redirect to='/' />
+        <Redirect to={countryHiddenPath} />
             :
         routeDrawNode(Comp, route)
-    )
+    }
     // 状态为未登录
     const noHaveLogin = () => (
         hidden
             ?
-        <Redirect to='/login' />
+        <Redirect to={hiddenPath} />
             :
         routeDrawNode(Comp, route)
     )
