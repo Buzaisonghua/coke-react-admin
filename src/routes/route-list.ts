@@ -7,8 +7,7 @@ export interface RouteProps {
     countryHidden?: boolean; /** 登录权限 登录后访问此页面重定向至 setting.countryHidden 拥有继承特性 */
     children?: RouteProps[]; /**路由子集 路由为嵌套结构 */
 }
-
-const routeList:RouteProps[] = [
+const routeList: RouteProps[] = [
     {
         path: '/login',
         title: '登录',
@@ -17,7 +16,7 @@ const routeList:RouteProps[] = [
     },
     {
         path: '/',
-        title: '布局',
+        title: '布局页',
         component: 'Layout',
         hidden: true,
         children: [

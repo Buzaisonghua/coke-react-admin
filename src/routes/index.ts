@@ -3,7 +3,7 @@ import routeList, { RouteProps } from './route-list'
 const InitRoute = () => {
     const routes:RouteProps[] = routeList
     return (
-        RouteNode(routes)
+       RouteNode(routes)
     )
 }
 export default InitRoute
